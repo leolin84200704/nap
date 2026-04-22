@@ -1,0 +1,43 @@
+# Credentials & secrets
+client_secret_*.json
+credentials.json
+token.json
+*.key
+*.pem
+.env
+
+# Personal memory data (keep your memories private!)
+short-term-memory/*.md
+!short-term-memory/_index.md
+long-term-memory/*.md
+!long-term-memory/_index.md
+archive/*.md
+!archive/.gitkeep
+
+# Integration data
+integrations/*/data/
+integrations/*/credentials/
+
+# Logs
+logs/*.log
+logs/*.md
+!logs/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
