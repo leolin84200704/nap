@@ -29,7 +29,7 @@ pip install -r requirements.txt
 
 ### 5. Run
 ```bash
-# From the dream-agent root directory:
+# From the nap root directory:
 python -m bot
 ```
 

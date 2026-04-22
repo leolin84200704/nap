@@ -1,18 +1,20 @@
-# Dream Agent
+# nap
 
-**A personal life agent with bio-inspired memory consolidation.**
+*Your AI agent takes a nap, wakes up smarter.*
 
-Dream Agent is an AI-powered personal assistant that manages your tasks, emails, calendar, and life context — with a memory system modeled after how the human brain consolidates memories during sleep.
+**A personal life agent with bio-inspired memory consolidation.** Built on Claude Code.
 
-Unlike typical AI memory systems that use vector databases, Dream Agent uses **Markdown files + scheduled offline dreaming** for transparent, auditable, zero-infrastructure memory management.
+nap is an AI-powered personal assistant that manages your tasks, emails, calendar, and life context — with a memory system modeled after how the human brain consolidates memories during sleep.
+
+Unlike typical AI memory systems that use vector databases, nap uses **Markdown files + scheduled offline dreaming** for transparent, auditable, zero-infrastructure memory management.
 
 ---
 
-## Why Dream Agent?
+## Why nap?
 
 LLM-based personal agents face a fundamental tension: **context windows are finite, but life is not.**
 
-Without active memory management, agent memory systems suffer from accumulation bloat, flat retrieval, no consolidation, and no forgetting. Dream Agent solves this by borrowing from neuroscience:
+Without active memory management, agent memory systems suffer from accumulation bloat, flat retrieval, no consolidation, and no forgetting. nap solves this by borrowing from neuroscience:
 
 > During "sleep" (idle time between sessions), the agent consolidates episodic memories into semantic knowledge, prunes irrelevant details, and reorganizes connections — just like the human brain does during REM sleep.
 
@@ -30,7 +32,7 @@ Without active memory management, agent memory systems suffer from accumulation 
 
 ### Why Markdown Files Instead of Vector DB?
 
-| | Vector DB (Chroma, Pinecone, etc.) | Dream Agent (Markdown + Dreaming) |
+| | Vector DB (Chroma, Pinecone, etc.) | nap (Markdown + Dreaming) |
 |---|---|---|
 | **Semantic search** | Native, real-time | Approximated via cross-linking + LLM scoring at dream-time |
 | **Scale** | Millions of records | 50–500 files (personal agent scale) |
@@ -42,7 +44,7 @@ Without active memory management, agent memory systems suffer from accumulation 
 
 > **"Vector DB is for agents that search millions of memories in real-time. File-based dreaming is for personal agents that need transparent, auditable, zero-infra memory with offline consolidation."**
 
-The key insight from [Sleep-time Compute](https://arxiv.org/abs/2504.13171): move expensive computation to idle time. Instead of real-time semantic search, Dream Agent pre-digests and cross-links memories during scheduled "sleep," making session-start retrieval fast and token-efficient.
+The key insight from [Sleep-time Compute](https://arxiv.org/abs/2504.13171): move expensive computation to idle time. Instead of real-time semantic search, nap pre-digests and cross-links memories during scheduled "sleep," making session-start retrieval fast and token-efficient.
 
 ---
 
@@ -110,7 +112,7 @@ Inspired by [Generative Agents](https://arxiv.org/abs/2304.03442) (Stanford, UIS
 ## Project Structure
 
 ```
-dream-agent/
+nap/
 ├── AGENT.md                     # Agent behavior rules & system prompt
 ├── FEEDBACK.md                  # User preferences (highest-priority input)
 ├── MEMORY-ARCHITECTURE.md       # Full memory system design document
@@ -159,8 +161,8 @@ dream-agent/
 ### 1. Clone & Configure
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/dream-agent.git
-cd dream-agent
+git clone https://github.com/YOUR_USERNAME/nap.git
+cd nap
 
 # Edit AGENT.md to customize agent behavior
 # Edit FEEDBACK.md to set your preferences
@@ -174,10 +176,10 @@ Add to `~/.claude/CLAUDE.md` so the agent is available in every Claude Code sess
 # Personal Agent
 
 On session start:
-1. Read `<path-to>/dream-agent/AGENT.md` for agent behavior rules
-2. Read `<path-to>/dream-agent/FEEDBACK.md` for user preferences
-3. Read `<path-to>/dream-agent/short-term-memory/_index.md` for active tasks
-4. Read `<path-to>/dream-agent/long-term-memory/_index.md` for background context
+1. Read `<path-to>/nap/AGENT.md` for agent behavior rules
+2. Read `<path-to>/nap/FEEDBACK.md` for user preferences
+3. Read `<path-to>/nap/short-term-memory/_index.md` for active tasks
+4. Read `<path-to>/nap/long-term-memory/_index.md` for background context
 ```
 
 ### 3. Create Your First Memory
@@ -196,7 +198,7 @@ updated: 2026-04-22
 ---
 
 ## Summary
-This is my first task in Dream Agent.
+This is my first task in nap.
 
 ## Next Actions
 - [ ] Try running the dream process
@@ -217,13 +219,13 @@ EOF
 
 ```bash
 # Create a launchd plist for daily dreaming
-cat > ~/Library/LaunchAgents/com.dream-agent.dream.plist << EOF
+cat > ~/Library/LaunchAgents/com.nap.dream.plist << EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.dream-agent.dream</string>
+    <string>com.nap.dream</string>
     <key>ProgramArguments</key>
     <array>
         <string>$(pwd)/scripts/run-dream.sh</string>
@@ -251,13 +253,13 @@ cat > ~/Library/LaunchAgents/com.dream-agent.dream.plist << EOF
 EOF
 
 # Load it
-launchctl load ~/Library/LaunchAgents/com.dream-agent.dream.plist
+launchctl load ~/Library/LaunchAgents/com.nap.dream.plist
 ```
 
 For Linux, use cron:
 ```bash
 # Run daily at 8 PM
-0 20 * * * cd /path/to/dream-agent && ./scripts/run-dream.sh >> logs/cron.log 2>&1
+0 20 * * * cd /path/to/nap && ./scripts/run-dream.sh >> logs/cron.log 2>&1
 ```
 
 ### 6. (Optional) Set Up Telegram Bot
@@ -341,7 +343,7 @@ For a full reference list with neuroscience foundations, see [docs/auto-dream-ar
 
 | Project | Type | Dreaming | Tiered Memory | Forgetting | File-based | Multi-channel |
 |---------|------|----------|---------------|------------|------------|---------------|
-| **Dream Agent** | Personal agent | Scheduled offline | 3-tier + scoring | Decay curve | Markdown + YAML | CLI + Telegram + cron |
+| **nap** | Personal agent | Scheduled offline | 3-tier + scoring | Decay curve | Markdown + YAML | CLI + Telegram + cron |
 | [Mem0](https://github.com/mem0ai/mem0) (53k+) | Memory library | No | No | No | Vector DB | No |
 | [Letta/MemGPT](https://github.com/letta-ai/letta) (22k+) | Agent platform | In-conversation | 3-tier | No | PostgreSQL | No |
 | [Khoj](https://github.com/khoj-ai/khoj) (34k+) | AI second brain | No | No | No | RAG-based | Yes |

@@ -386,7 +386,7 @@ claude -p "$(cat scripts/dream.md)" --allowedTools "Read,Write,Edit,Glob,Grep,Ba
 ### Manual Trigger
 
 ```bash
-cd /path/to/dream-agent
+cd /path/to/nap
 ./scripts/run-dream.sh          # full run
 ./scripts/run-dream.sh --dry    # preview command only
 ```

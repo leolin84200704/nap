@@ -7,7 +7,7 @@
 #   ./scripts/run-dream.sh --dry    # dry run (print command only)
 #
 # Schedule via launchd (macOS) or crontab (Linux):
-#   0 20 * * * cd /path/to/dream-agent && ./scripts/run-dream.sh >> logs/cron.log 2>&1
+#   0 20 * * * cd /path/to/nap && ./scripts/run-dream.sh >> logs/cron.log 2>&1
 
 set -euo pipefail
 

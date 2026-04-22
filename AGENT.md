@@ -73,7 +73,7 @@ User interaction (any channel)
 ## Architecture
 
 ```
-dream-agent/
+nap/
 ├── AGENT.md                     # This file — agent instructions & architecture
 ├── FEEDBACK.md                  # User preferences & behavioral feedback
 │
