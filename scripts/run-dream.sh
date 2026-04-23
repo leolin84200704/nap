@@ -30,7 +30,7 @@ fi
 # Dry run mode
 if [ "${1:-}" = "--dry" ]; then
     echo "Would run:"
-    echo "  cd $PROJECT_DIR && claude -p \"\$(cat $DREAM_PROMPT)\" --allowedTools Read,Write,Edit,Glob,Grep,Bash"
+    echo "  cd $PROJECT_DIR && claude --allowedTools Read,Write,Edit,Glob,Grep,Bash -p \"\$(cat $DREAM_PROMPT)\""
     exit 0
 fi
 
@@ -38,8 +38,8 @@ echo "[$(date)] Starting Auto Dream..." | tee -a "$LOG_FILE"
 
 cd "$PROJECT_DIR"
 
-claude -p "$(cat "$DREAM_PROMPT")" \
-    --allowedTools "Read,Write,Edit,Glob,Grep,Bash" \
+claude --allowedTools "Read,Write,Edit,Glob,Grep,Bash" \
+    -p "$(cat "$DREAM_PROMPT")" \
     2>&1 | tee -a "$LOG_FILE"
 
 echo "[$(date)] Auto Dream completed." | tee -a "$LOG_FILE"

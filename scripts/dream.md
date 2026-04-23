@@ -1,10 +1,3 @@
----
-description: Auto Dreaming prompt — memory consolidation script
-trigger: daily 3AM or manual
-usage_local: claude -p "$(cat scripts/dream.md)" --allowedTools "Read,Write,Edit,Glob,Grep,Bash"
-usage_manual: copy-paste this file content as a prompt in Claude Code
----
-
 You are the Dreaming Agent for a personal life assistant. Your job is to consolidate, score, prune, and reorganize the memory system.
 
 Working directory: the root of the personal-agent repository.
